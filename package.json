@@ -1,6 +1,6 @@
 {
   "name": "ra-data-leancloud",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:cheese-git/ra-data-leancloud.git",
