@@ -1,0 +1,28 @@
+{
+  "name": "ra-data-leancloud",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "git@github.com:cheese-git/ra-data-leancloud.git",
+  "author": "Cheese",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "react": "^16.8.4",
+    "react-admin": "^2.8.2",
+    "react-dom": "^16.8.4",
+    "standard-version": "^5.0.2",
+    "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4",
+    "react-admin": "^2.8.2"
+  }
+}
