@@ -11,6 +11,11 @@
     "prepublish": "npm run build",
     "release": "standard-version"
   },
+  "standard-version": {
+    "scripts": {
+      "posttag": "git push --follow-tags origin master"
+    }
+  },
   "dependencies": {
     "lodash": "^4.17.11"
   },
