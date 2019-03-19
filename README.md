@@ -1,4 +1,4 @@
-# ra-data-leancloud &middot; [![npm version](https://img.shields.io/npm/v/ra-data-leancloud.svg?style=flat)](https://www.npmjs.com/package/ra-data-leancloud)
+# ra-data-leancloud &middot; ![GitHub](https://img.shields.io/github/license/cheese-git/ra-data-leancloud.svg) [![npm version](https://img.shields.io/npm/v/ra-data-leancloud.svg?style=flat)](https://www.npmjs.com/package/ra-data-leancloud)
 
 A LeanCloud data provider for [react-admin](https://github.com/marmelab/react-admin).
 
@@ -44,3 +44,7 @@ export default () => <Admin dataProvider={dataProvider} />
 - 内嵌查询有一定限制，详情查看 [LeanCloud 官方说明](https://leancloud.cn/docs/leanstorage_guide-js.html#hash645521220)
 - 内嵌查询要求字段名称和 class 的名称一致，只是首字母变为小写。如 `todo` 字段指向 `Todo` class 中的数据。
 - 内嵌查询可以有多个层级，如 `a.b.c.d.e`
+
+## License
+
+MIT.
