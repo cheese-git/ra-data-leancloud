@@ -6,6 +6,16 @@ A LeanCloud data provider for [react-admin](https://github.com/marmelab/react-ad
 
 - 支持内嵌查询
 
+## Installation
+
+```bash
+yarn add ra-data-leancloud
+
+# or
+
+npm i ra-data-leancloud --save
+```
+
 ## Usage
 
 ```js
