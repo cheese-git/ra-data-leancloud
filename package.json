@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "main": "cjs/index.js",
   "module": "esm/index.js",
-  "types": "lib/index.d.ts",
+  "types": "esm/index.d.ts",
   "repository": "git@github.com:cheese-git/ra-data-leancloud.git",
   "author": "Cheese",
   "license": "MIT",
