@@ -1,4 +1,11 @@
-import { GET_LIST, GET_ONE, GET_MANY, UPDATE } from "react-admin"
+import {
+  GET_LIST,
+  GET_ONE,
+  GET_MANY,
+  UPDATE,
+  CREATE,
+  DELETE
+} from "react-admin"
 import { transformAVObject, transformAVObjects, getObjChanges } from "./utils"
 import _ from "lodash"
 
@@ -35,6 +42,23 @@ async function dataProvider(type, resource, params) {
       await AVObject.save(changes)
       data = await AVObject.fetch().then(transformAVObject)
       return { data }
+
+    case CREATE:
+      const obj = new AV.Object(resource)
+      data = await obj
+        .save(params.data, { fetchWhenSave: true })
+        .then(transformAVObject)
+
+      return { data }
+
+    case DELETE: {
+      const AVObject: AV.Object = AV.Object.createWithoutData(
+        resource,
+        params.id
+      )
+      const data = await AVObject.destroy().then(transformAVObject)
+      return { data }
+    }
     default:
       throw new Error(`Unsupported fetch action type ${type}`)
   }
