@@ -1,13 +1,15 @@
 {
   "name": "ra-data-leancloud",
   "version": "1.0.3",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:cheese-git/ra-data-leancloud.git",
   "author": "Cheese",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir cjs",
+    "build": "tsc & npm run build:cjs",
     "prepublish": "npm run build",
     "release": "standard-version"
   },
