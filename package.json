@@ -18,7 +18,7 @@
   "scripts": {
     "build:cjs": "tsc --module commonjs --outDir cjs",
     "build": "tsc & npm run build:cjs",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "release": "standard-version"
   },
   "standard-version": {
