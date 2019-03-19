@@ -1,4 +1,4 @@
-# ra-data-leancloud
+# ra-data-leancloud &middot; [![npm version](https://img.shields.io/npm/v/ra-data-leancloud.svg?style=flat)](https://www.npmjs.com/package/ra-data-leancloud)
 
 A LeanCloud data provider for [react-admin](https://github.com/marmelab/react-admin).
 
