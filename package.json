@@ -4,7 +4,15 @@
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
-  "repository": "git@github.com:cheese-git/ra-data-leancloud.git",
+  "repository": "https://github.com/cheese-git/ra-data-leancloud",
+  "homepage": "https://github.com/cheese-git/ra-data-leancloud",
+  "bugs": {
+    "url": "https://github.com/cheese-git/ra-data-leancloud/issues"
+  },
+  "keywords": [
+    "react-admin",
+    "leancloud"
+  ],
   "author": "Cheese",
   "license": "MIT",
   "scripts": {
