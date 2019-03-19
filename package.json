@@ -1,6 +1,6 @@
 {
   "name": "ra-data-leancloud",
-  "version": "1.0.4",
+  "version": "0.0.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
