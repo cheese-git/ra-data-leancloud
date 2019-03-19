@@ -1,5 +1,7 @@
 # ra-data-leancloud
 
+A LeanCloud data provider for [react-admin](https://github.com/marmelab/react-admin).
+
 ## Features
 
 - 支持内嵌查询
