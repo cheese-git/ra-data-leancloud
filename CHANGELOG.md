@@ -4,23 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 # [0.1.0](https://github.com/cheese-git/ra-data-leancloud/compare/v0.0.4...v0.1.0) (2019-03-19)
 
-
 ### Features
 
-* 新增对 `CREATE` 和 `DELETE` 操作的支持 ([d826871](https://github.com/cheese-git/ra-data-leancloud/commit/d826871))
-
-
-
-## [0.0.4](https://github.com/cheese-git/ra-data-leancloud/compare/v0.0.3...v0.0.4) (2019-03-19)
-
-
-
-## [0.0.3](https://github.com/cheese-git/ra-data-leancloud/compare/v0.0.2...v0.0.3) (2019-03-19)
-
-
-
-## [0.0.2](https://github.com/cheese-git/ra-data-leancloud/compare/v0.0.1...v0.0.2) (2019-03-19)
-
-
-
-## [0.0.1](https://github.com/cheese-git/ra-data-leancloud/compare/v0.0.0...v0.0.1) (2019-03-19)
+- 新增对 `CREATE` 和 `DELETE` 操作的支持 ([d826871](https://github.com/cheese-git/ra-data-leancloud/commit/d826871))
