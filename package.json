@@ -1,5 +1,6 @@
 {
   "name": "ra-data-leancloud",
+  "description": "A LeanCloud data provider for react-admin.",
   "version": "0.1.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
