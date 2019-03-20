@@ -24,6 +24,25 @@ export function transformAVObject(AVObject) {
   return newObject
 }
 
+export function transformObjectIdToPointer(data: object): object {
+  const keys = Object.keys(data)
+  keys.forEach(key => {
+    const value = data[key]
+    if (isObjectId(value)) {
+      const className = _.upperFirst(key)
+      data[key] = {
+        __type: "Pointer",
+        className,
+        objectId: value
+      }
+    }
+  })
+
+  return data
+}
+
+/** private functions **/
+
 /**
  * @param {*} jsonObject AVObject.toJSON()
  */
@@ -32,5 +51,16 @@ function transformPointerToPureId(jsonObject) {
     if (jsonObject[key].__type === "Pointer") {
       jsonObject[key] = jsonObject[key].objectId
     }
+  }
+}
+
+function isObjectId(value): boolean {
+  if (typeof value !== "string") {
+    return false
+  }
+  if (/[a-z,0-9]{24}/.test(value)) {
+    return true
+  } else {
+    return false
   }
 }

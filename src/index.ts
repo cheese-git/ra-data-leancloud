@@ -6,7 +6,12 @@ import {
   CREATE,
   DELETE
 } from "react-admin"
-import { transformAVObject, transformAVObjects, getObjChanges } from "./utils"
+import {
+  transformAVObject,
+  transformAVObjects,
+  getObjChanges,
+  transformObjectIdToPointer
+} from "./utils"
 import _ from "lodash"
 
 let AV, debug: boolean
@@ -43,13 +48,15 @@ async function dataProvider(type, resource, params) {
       data = await AVObject.fetch().then(transformAVObject)
       return { data }
 
-    case CREATE:
-      const obj = new AV.Object(resource)
-      data = await obj
-        .save(params.data, { fetchWhenSave: true })
-        .then(transformAVObject)
+    case CREATE: {
+      const dataToSave = transformObjectIdToPointer(params.data)
+      const AVObject = new AV.Object(resource)
+      const dataSaved = await AVObject.save(dataToSave, {
+        fetchWhenSave: true
+      }).then(transformAVObject)
 
-      return { data }
+      return { data: dataSaved }
+    }
 
     case DELETE: {
       const AVObject: AV.Object = AV.Object.createWithoutData(
