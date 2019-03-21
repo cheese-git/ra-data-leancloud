@@ -13,10 +13,11 @@ import {
   transformObjectIdToPointer
 } from "./utils"
 import _ from "lodash"
-
-let AV, debug: boolean
+import config from "./config"
 
 async function dataProvider(type, resource, params) {
+  const { debug, AV } = config
+
   debug && console.log(type, resource, params)
 
   const query = new AV.Query(resource)
@@ -75,7 +76,7 @@ async function handleGetList(
   resource,
   { sort, pagination: { page, perPage }, filter }
 ) {
-  const query = new AV.Query(resource)
+  const query = new config.AV.Query(resource)
 
   handleFilter(query, filter)
   if (sort.order === "DESC") {
@@ -106,6 +107,7 @@ function handleFilter(query, filter) {
 }
 
 function handleInnerQuery(query, key, value) {
+  const { AV } = config
   const keys = key.split(".")
   let innerQuery, outerQuery, innerClassName
 
@@ -123,9 +125,6 @@ function handleInnerQuery(query, key, value) {
   query.matchesQuery(keys[0], innerQuery)
 }
 
-dataProvider.init = (options: InitOptions) => {
-  AV = options.AV
-  debug = options.debug || false
-}
+dataProvider.init = config.init
 
 export default dataProvider
