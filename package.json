@@ -17,6 +17,7 @@
   "author": "Cheese",
   "license": "MIT",
   "scripts": {
+    "start": "tsc --watch",
     "build:cjs": "tsc --module commonjs --outDir cjs",
     "build": "tsc & npm run build:cjs",
     "prepublishOnly": "npm run build",
