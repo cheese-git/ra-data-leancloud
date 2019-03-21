@@ -4,13 +4,15 @@ import {
   GET_MANY,
   UPDATE,
   CREATE,
-  DELETE
+  DELETE,
+  DELETE_MANY
 } from "react-admin"
 import {
   transformAVObject,
   transformAVObjects,
   getObjChanges,
-  transformObjectIdToPointer
+  transformObjectIdToPointer,
+  buildAVObjectsFromIds
 } from "./utils"
 import _ from "lodash"
 import config from "./config"
@@ -32,15 +34,11 @@ async function dataProvider(type, resource, params) {
 
       return { data }
 
-    case GET_MANY:
-      const { ids } = params
-      const AVObjects = []
-      ids.forEach(id => {
-        const AVObject = AV.Object.createWithoutData(resource, id)
-        AVObjects.push(AVObject)
-      })
-      data = await AV.Object.fetchAll(AVObjects).then(transformAVObjects)
+    case GET_MANY: {
+      const AVObjects = buildAVObjectsFromIds(resource, params.ids)
+      const data = await AV.Object.fetchAll(AVObjects).then(transformAVObjects)
       return { data }
+    }
 
     case UPDATE:
       const changes = getObjChanges(params.previousData, params.data)
@@ -66,6 +64,12 @@ async function dataProvider(type, resource, params) {
       )
       const data = await AVObject.destroy().then(transformAVObject)
       return { data }
+    }
+
+    case DELETE_MANY: {
+      const AVObjects = buildAVObjectsFromIds(resource, params.ids)
+      await AV.Object.destroyAll(AVObjects)
+      return { data: params.ids }
     }
     default:
       throw new Error(`Unsupported fetch action type ${type}`)
@@ -125,6 +129,8 @@ function handleInnerQuery(query, key, value) {
   query.matchesQuery(keys[0], innerQuery)
 }
 
-dataProvider.init = config.init
+dataProvider.init = options => {
+  config.init(options)
+}
 
 export default dataProvider

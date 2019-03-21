@@ -1,4 +1,5 @@
 import _ from "lodash"
+import config from "./config"
 
 export function getObjChanges(oldObj, newOjb) {
   const changes = {}
@@ -39,6 +40,19 @@ export function transformObjectIdToPointer(data: object): object {
   })
 
   return data
+}
+
+export function buildAVObjectsFromIds(
+  className: string,
+  ids: string[]
+): AV.Object[] {
+  return ids.map(id => {
+    const AVObject: AV.Object = config.AV.Object.createWithoutData(
+      className,
+      id
+    )
+    return AVObject
+  })
 }
 
 /** private functions **/
